@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Video Dubbing Platform Design System - Based on Lovable.dev */
+
+@layer base {
+  :root {
+    /* Base Colors - Warm and Professional */
+    --background: 32 12% 97.5%;
+    --foreground: 30 15% 11%;
+
+    --card: 32 25% 98.5%;
+    --card-foreground: 30 15% 11%;
+
+    --popover: 32 25% 98.5%;
+    --popover-foreground: 30 15% 11%;
+
+    /* Primary - Professional Blue */
+    --primary: 241 58% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Warm Cream */
+    --secondary: 38 35% 92%;
+    --secondary-foreground: 30 15% 11%;
+
+    /* Muted - Subtle Grays */
+    --muted: 32 12% 90%;
+    --muted-foreground: 30 8% 37%;
+
+    /* Accent - Pink Highlight */
+    --accent: 329 69% 85%;
+    --accent-foreground: 338 75% 25%;
+
+    /* Destructive */
+    --destructive: 338 75% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* UI Elements */
+    --border: 32 12% 85%;
+    --input: 32 12% 85%;
+    --ring: 241 58% 51%;
+
+    --radius: 0.75rem;
+    
+    /* Custom Design Tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(241 58% 51%) 0%, hsl(217 71% 53%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(32 25% 98.5%) 0%, hsl(38 35% 96%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(329 69% 85%) 0%, hsl(25 85% 88%) 100%);
+    
+    --shadow-soft: 0 2px 8px hsl(30 15% 11% / 0.08);
+    --shadow-medium: 0 4px 16px hsl(30 15% 11% / 0.12);
+    --shadow-strong: 0 8px 32px hsl(30 15% 11% / 0.16);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode - Professional Dark Theme */
+    --background: 30 15% 4%;
+    --foreground: 32 12% 97.5%;
+
+    --card: 30 15% 6%;
+    --card-foreground: 32 12% 97.5%;
+
+    --popover: 30 15% 6%;
+    --popover-foreground: 32 12% 97.5%;
+
+    --primary: 217 71% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 30 15% 12%;
+    --secondary-foreground: 32 12% 97.5%;
+
+    --muted: 30 15% 8%;
+    --muted-foreground: 30 8% 65%;
+
+    --accent: 329 69% 25%;
+    --accent-foreground: 32 12% 97.5%;
+
+    --destructive: 338 75% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 15% 15%;
+    --input: 30 15% 15%;
+    --ring: 217 71% 53%;
+
+    /* Dark mode gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(217 71% 53%) 0%, hsl(241 58% 51%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(30 15% 6%) 0%, hsl(30 15% 8%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(329 69% 25%) 0%, hsl(25 85% 25%) 100%);
+    
+    --shadow-soft: 0 2px 8px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 4px 16px hsl(0 0% 0% / 0.4);
+    --shadow-strong: 0 8px 32px hsl(0 0% 0% / 0.5);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  /* Professional Video Interface Components */
+  .video-timeline {
+    background: var(--gradient-card);
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .upload-dropzone {
+    background: var(--gradient-card);
+    border: 2px dashed hsl(var(--border));
+    transition: var(--transition-smooth);
+  }
+  
+  .upload-dropzone:hover {
+    border-color: hsl(var(--primary));
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .project-card {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+  }
+  
+  .project-card:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .accent-gradient {
+    background: var(--gradient-accent);
+  }
+}
