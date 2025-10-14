@@ -8,10 +8,10 @@ const AuthSection = () => {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-foreground mb-4">
-            Get Started in Seconds
+            몇 초 만에 시작해보세요
           </h2>
           <p className="text-lg text-muted-foreground">
-            Sign in with your preferred method and start dubbing videos instantly
+            원하는 방식으로 로그인하고 지금 바로 한모아를 경험해보세요!
           </p>
         </div>
 
@@ -19,33 +19,34 @@ const AuthSection = () => {
           {/* Social Login */}
           <Card className="project-card">
             <CardHeader className="text-center pb-4">
-              <CardTitle className="text-xl">Quick Sign In</CardTitle>
+              <CardTitle className="text-xl">간편 로그인</CardTitle>
               <p className="text-muted-foreground">
-                Use your existing account to get started immediately
+                기존 계정으로 바로 시작할 수 있어요
               </p>
             </CardHeader>
             <CardContent className="space-y-4">
-              <Button 
-                size="lg" 
-                variant="outline" 
+              <Button
+                size="lg"
+                variant="outline"
                 className="w-full justify-start gap-3 h-12"
               >
                 <Chrome className="h-5 w-5 text-[#4285f4]" />
-                Continue with Google
+                Google 계정으로 계속하기
               </Button>
-              
-              <Button 
-                size="lg" 
-                variant="outline" 
+
+              <Button
+                size="lg"
+                variant="outline"
                 className="w-full justify-start gap-3 h-12"
               >
                 <Github className="h-5 w-5" />
-                Continue with GitHub
+                GitHub 계정으로 계속하기
               </Button>
-              
+
               <div className="text-center pt-4">
                 <p className="text-sm text-muted-foreground">
-                  By signing in, you agree to our Terms of Service and Privacy Policy
+                  로그인하면 서비스 이용약관 및 개인정보 처리방침에 동의하게
+                  됩니다.
                 </p>
               </div>
             </CardContent>
@@ -54,41 +55,42 @@ const AuthSection = () => {
           {/* Benefits */}
           <Card className="project-card">
             <CardHeader className="text-center pb-4">
-              <CardTitle className="text-xl">Why Sign Up?</CardTitle>
+              <CardTitle className="text-xl">왜 가입해야 하나요?</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-              <div className="flex items-start gap-4">
+              {/* <div className="flex items-start gap-4">
                 <div className="p-2 rounded-full bg-primary/10">
                   <Shield className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-1">Secure Projects</h4>
+                  <h4 className="font-semibold mb-1">프로젝트 보안 유지</h4>
                   <p className="text-sm text-muted-foreground">
-                    Your videos and dubbing projects are encrypted and private
+                    영상과 더빙 프로젝트는 안전하게 보호됩니다.
                   </p>
                 </div>
-              </div>
-              
-              <div className="flex items-start gap-4">
+              </div> */}
+
+              {/* <div className="flex items-start gap-4">
                 <div className="p-2 rounded-full bg-primary/10">
                   <Zap className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-1">Fast Processing</h4>
+                  <h4 className="font-semibold mb-1">빠른 처리. ㅗㄱ도</h4>
                   <p className="text-sm text-muted-foreground">
                     Priority access to our AI dubbing pipeline
                   </p>
                 </div>
-              </div>
-              
+              </div> */}
+
               <div className="flex items-start gap-4">
                 <div className="p-2 rounded-full bg-primary/10">
                   <Github className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-1">Project History</h4>
+                  <h4 className="font-semibold mb-1">프로젝트 기록 관리</h4>
                   <p className="text-sm text-muted-foreground">
-                    Access all your dubbing projects anytime, anywhere
+                    언제 어디서나 내가 작업한 더빙 프로젝트를 다시 확인할 수
+                    있어요
                   </p>
                 </div>
               </div>

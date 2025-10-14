@@ -1,16 +1,16 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Clock, 
-  Download, 
-  Edit, 
-  MoreHorizontal, 
+import {
+  Clock,
+  Download,
+  Edit,
+  MoreHorizontal,
   PlayCircle,
   FileText,
   Languages,
   CheckCircle,
-  AlertCircle
+  AlertCircle,
 } from "lucide-react";
 
 const ProjectDashboard = () => {
@@ -23,38 +23,53 @@ const ProjectDashboard = () => {
       status: "completed",
       duration: "3:24",
       createdAt: "2024-01-15",
-      thumbnail: "/api/placeholder/400/225"
+      thumbnail: "/api/placeholder/400/225",
     },
     {
       id: 2,
       title: "Product Demo JP",
-      originalLanguage: "English", 
-      targetLanguage: "Japanese",
+      originalLanguage: "English",
+      targetLanguage: "Korean",
       status: "processing",
       duration: "8:15",
       createdAt: "2024-01-14",
-      thumbnail: "/api/placeholder/400/225"
+      thumbnail: "/api/placeholder/400/225",
     },
     {
       id: 3,
       title: "Training Video ES",
       originalLanguage: "English",
-      targetLanguage: "Spanish", 
+      targetLanguage: "Korean",
       status: "review",
       duration: "12:30",
       createdAt: "2024-01-12",
-      thumbnail: "/api/placeholder/400/225"
-    }
+      thumbnail: "/api/placeholder/400/225",
+    },
   ];
 
   const getStatusBadge = (status: string) => {
     switch (status) {
       case "completed":
-        return <Badge className="bg-emerald-100 text-emerald-800 hover:bg-emerald-100"><CheckCircle className="w-3 h-3 mr-1" />Completed</Badge>;
+        return (
+          <Badge className="bg-emerald-100 text-emerald-800 hover:bg-emerald-100">
+            <CheckCircle className="w-3 h-3 mr-1" />
+            Completed
+          </Badge>
+        );
       case "processing":
-        return <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-100"><Clock className="w-3 h-3 mr-1" />Processing</Badge>;
+        return (
+          <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-100">
+            <Clock className="w-3 h-3 mr-1" />
+            Processing
+          </Badge>
+        );
       case "review":
-        return <Badge className="bg-amber-100 text-amber-800 hover:bg-amber-100"><AlertCircle className="w-3 h-3 mr-1" />Review</Badge>;
+        return (
+          <Badge className="bg-amber-100 text-amber-800 hover:bg-amber-100">
+            <AlertCircle className="w-3 h-3 mr-1" />
+            Review
+          </Badge>
+        );
       default:
         return <Badge variant="secondary">{status}</Badge>;
     }
@@ -66,14 +81,14 @@ const ProjectDashboard = () => {
         <div className="flex items-center justify-between mb-12">
           <div>
             <h2 className="text-3xl font-bold text-foreground mb-4">
-              Your Dubbing Projects
+              더빙 프로젝트
             </h2>
             <p className="text-lg text-muted-foreground">
-              Manage and track your video dubbing projects
+              내 영상을 관리하고 진행 상황을 확인하세요
             </p>
           </div>
           <Button size="lg" className="px-6">
-            New Project
+            새 더빙 시작
           </Button>
         </div>
 
@@ -91,37 +106,44 @@ const ProjectDashboard = () => {
                   <div className="text-sm opacity-90">{project.duration}</div>
                 </div>
               </div>
-              
+
               <CardHeader className="pb-3">
                 <CardTitle className="text-xl">{project.title}</CardTitle>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Languages className="h-4 w-4" />
-                  <span>{project.originalLanguage} → {project.targetLanguage}</span>
+                  <span>
+                    {project.originalLanguage} → {project.targetLanguage}
+                  </span>
                 </div>
               </CardHeader>
-              
+
               <CardContent className="pt-0">
                 <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
-                  <span>Created {project.createdAt}</span>
+                  <span>생성일 {project.createdAt}</span>
                 </div>
-                
+
                 <div className="flex gap-2">
                   {project.status === "completed" && (
                     <Button variant="outline" size="sm" className="flex-1">
                       <Download className="h-4 w-4 mr-2" />
-                      Download
+                      다운로드
                     </Button>
                   )}
                   {project.status === "review" && (
                     <Button variant="outline" size="sm" className="flex-1">
                       <Edit className="h-4 w-4 mr-2" />
-                      Review
+                      검토하기
                     </Button>
                   )}
                   {project.status === "processing" && (
-                    <Button variant="outline" size="sm" className="flex-1" disabled>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="flex-1"
+                      disabled
+                    >
                       <Clock className="h-4 w-4 mr-2" />
-                      Processing...
+                      처리 중...
                     </Button>
                   )}
                   <Button variant="ghost" size="sm">
@@ -143,12 +165,14 @@ const ProjectDashboard = () => {
                 </div>
                 <div>
                   <div className="text-2xl font-bold">12</div>
-                  <div className="text-sm text-muted-foreground">Total Projects</div>
+                  <div className="text-sm text-muted-foreground">
+                    전체 프로젝트
+                  </div>
                 </div>
               </div>
             </CardContent>
           </Card>
-          
+
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center gap-4">
@@ -157,12 +181,12 @@ const ProjectDashboard = () => {
                 </div>
                 <div>
                   <div className="text-2xl font-bold">8</div>
-                  <div className="text-sm text-muted-foreground">Completed</div>
+                  <div className="text-sm text-muted-foreground">완료됨</div>
                 </div>
               </div>
             </CardContent>
           </Card>
-          
+
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center gap-4">
@@ -171,12 +195,12 @@ const ProjectDashboard = () => {
                 </div>
                 <div>
                   <div className="text-2xl font-bold">2</div>
-                  <div className="text-sm text-muted-foreground">Processing</div>
+                  <div className="text-sm text-muted-foreground">처리 중</div>
                 </div>
               </div>
             </CardContent>
           </Card>
-          
+
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center gap-4">
@@ -185,7 +209,7 @@ const ProjectDashboard = () => {
                 </div>
                 <div>
                   <div className="text-2xl font-bold">2</div>
-                  <div className="text-sm text-muted-foreground">In Review</div>
+                  <div className="text-sm text-muted-foreground">검토 중</div>
                 </div>
               </div>
             </CardContent>

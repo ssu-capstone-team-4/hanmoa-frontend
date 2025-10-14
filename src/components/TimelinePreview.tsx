@@ -2,17 +2,17 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Slider } from "@/components/ui/slider";
-import { 
-  Play, 
-  Pause, 
-  SkipBack, 
-  SkipForward, 
-  Volume2, 
+import {
+  Play,
+  Pause,
+  SkipBack,
+  SkipForward,
+  Volume2,
   Settings,
   Download,
   Edit3,
   Layers,
-  Activity
+  Activity,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -22,9 +22,30 @@ const TimelinePreview = () => {
   const [volume, setVolume] = useState([80]);
 
   const speakers = [
-    { id: 1, name: "Speaker 1", color: "bg-blue-500", segments: [{start: 0, end: 30}, {start: 60, end: 90}] },
-    { id: 2, name: "Speaker 2", color: "bg-emerald-500", segments: [{start: 30, end: 60}, {start: 90, end: 120}] },
-    { id: 3, name: "Narrator", color: "bg-purple-500", segments: [{start: 120, end: 180}] }
+    {
+      id: 1,
+      name: "화자 1",
+      color: "bg-blue-500",
+      segments: [
+        { start: 0, end: 30 },
+        { start: 60, end: 90 },
+      ],
+    },
+    {
+      id: 2,
+      name: "화자 2",
+      color: "bg-emerald-500",
+      segments: [
+        { start: 30, end: 60 },
+        { start: 90, end: 120 },
+      ],
+    },
+    {
+      id: 3,
+      name: "화자 3",
+      color: "bg-purple-500",
+      segments: [{ start: 120, end: 180 }],
+    },
   ];
 
   return (
@@ -32,26 +53,29 @@ const TimelinePreview = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-foreground mb-4">
-            Advanced Timeline Editor
+            타임라인 편집기
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Fine-tune your dubbing with precision controls, speaker separation, and real-time preview
+            더빙 결과를 정밀하게 다듬고, 화자별 분리 및 실시간 미리보기를
+            지원합니다.
           </p>
         </div>
 
         <Card className="video-timeline max-w-6xl mx-auto">
           <CardHeader className="pb-4">
             <div className="flex items-center justify-between">
-              <CardTitle className="text-xl">Marketing Video KR - Timeline</CardTitle>
+              <CardTitle className="text-xl">
+                Marketing Video KR - 타임라인
+              </CardTitle>
               <div className="flex items-center gap-2">
                 <Badge variant="secondary">
                   <Layers className="w-3 h-3 mr-1" />
-                  3 Speakers
+                  화자 3명
                 </Badge>
                 <Badge variant="outline">Korean</Badge>
                 <Button variant="outline" size="sm">
                   <Settings className="w-4 h-4 mr-2" />
-                  Settings
+                  설정
                 </Button>
               </div>
             </div>
@@ -65,10 +89,12 @@ const TimelinePreview = () => {
                 <div className="text-white/60 mb-4">
                   <Activity className="h-16 w-16 mx-auto" />
                 </div>
-                <div className="text-white text-lg mb-2">Marketing Video Demo</div>
+                <div className="text-white text-lg mb-2">
+                  Marketing Video Demo
+                </div>
                 <div className="text-white/60 text-sm">00:45 / 03:24</div>
               </div>
-              
+
               {/* Play Controls Overlay */}
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center gap-4">
                 <Button
@@ -84,7 +110,11 @@ const TimelinePreview = () => {
                   className="text-white hover:bg-white/20"
                   onClick={() => setIsPlaying(!isPlaying)}
                 >
-                  {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
+                  {isPlaying ? (
+                    <Pause className="h-6 w-6" />
+                  ) : (
+                    <Play className="h-6 w-6" />
+                  )}
                 </Button>
                 <Button
                   variant="ghost"
@@ -119,18 +149,22 @@ const TimelinePreview = () => {
               {/* Speaker Tracks */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <h4 className="text-sm font-medium">Speaker Tracks</h4>
-                  <Button variant="outline" size="sm">
+                  <h4 className="text-sm font-medium">화자별 트랙</h4>
+                  {/* <Button variant="outline" size="sm">
                     <Edit3 className="w-4 h-4 mr-2" />
-                    Edit Segments
-                  </Button>
+                    구간 검토
+                  </Button> */}
                 </div>
-                
+
                 {speakers.map((speaker) => (
                   <div key={speaker.id} className="flex items-center gap-4">
                     <div className="flex items-center gap-2 min-w-[120px]">
-                      <div className={`w-3 h-3 rounded-full ${speaker.color}`}></div>
-                      <span className="text-sm font-medium">{speaker.name}</span>
+                      <div
+                        className={`w-3 h-3 rounded-full ${speaker.color}`}
+                      ></div>
+                      <span className="text-sm font-medium">
+                        {speaker.name}
+                      </span>
                     </div>
                     <div className="flex-1 h-8 bg-muted rounded relative">
                       {speaker.segments.map((segment, index) => (
@@ -139,7 +173,9 @@ const TimelinePreview = () => {
                           className={`absolute h-full ${speaker.color} rounded opacity-80`}
                           style={{
                             left: `${(segment.start / 204) * 100}%`,
-                            width: `${((segment.end - segment.start) / 204) * 100}%`
+                            width: `${
+                              ((segment.end - segment.start) / 204) * 100
+                            }%`,
                           }}
                         ></div>
                       ))}
@@ -166,8 +202,8 @@ const TimelinePreview = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex items-center justify-between pt-6 border-t">
-              <div className="flex items-center gap-2">
+            <div className="flex items-center justify-end pt-6 border-t">
+              {/* <div className="flex items-center gap-2">
                 <Button variant="outline">
                   <Edit3 className="w-4 h-4 mr-2" />
                   Fine-tune
@@ -176,14 +212,12 @@ const TimelinePreview = () => {
                   <Settings className="w-4 h-4 mr-2" />
                   Audio Settings
                 </Button>
-              </div>
+              </div> */}
               <div className="flex items-center gap-2">
-                <Button variant="outline">
-                  Save Draft
-                </Button>
+                {/* <Button variant="outline">임시 저장</Button> */}
                 <Button>
                   <Download className="w-4 h-4 mr-2" />
-                  Export Video
+                  영상 저장
                 </Button>
               </div>
             </div>
